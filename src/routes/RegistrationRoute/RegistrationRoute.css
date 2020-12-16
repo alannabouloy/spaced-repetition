@@ -1,0 +1,18 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFCE8;
+    padding-bottom: 100%;
+}
+
+.app-desc {
+    background-color: #E06C9F;
+    margin: 0px 0px 16px 0px;
+    padding: 20px;
+    color: #FFFCE8
+}
+
+.register h2 {
+    text-align: center;
+    color: #156064;
+}

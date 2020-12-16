@@ -1,0 +1,35 @@
+.container {
+    width: 70vw;
+    clear: both;
+    margin: auto;
+    color: #3E363F;
+}
+
+.container input {
+    width: 100%;
+    clear: both;
+    margin: 5px;
+}
+
+.submit-button {
+    background-color: #8EA604;
+    color: #FFFCE8;
+    text-align: center;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.submit-button:hover {
+    background-color: #156064;
+}
+
+footer {
+    margin: 20px;
+    text-align: center;
+}
+
+footer a, footer a:visited {
+    color: #156064;
+}
