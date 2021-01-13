@@ -2,15 +2,19 @@ import React, { Component } from 'react'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import IdleService from '../services/idle-service'
+import ApiService from '../services/api-service'
 
 const UserContext = React.createContext({
   user: {},
   error: null,
+  language: {},
+  words: [],
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
   processLogin: () => {},
   processLogout: () => {},
+  getLanguage: () => {},
 })
 
 export default UserContext
@@ -18,7 +22,7 @@ export default UserContext
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user: {}, error: null }
+    const state = { user: {}, error: null, language: {}, words: [], }
 
     const jwtPayload = TokenService.parseAuthToken()
 
@@ -101,15 +105,28 @@ export class UserProvider extends Component {
       })
   }
 
+  getLanguage = () => {
+    console.log('getLanguage ran')
+    ApiService.getLanguage()
+      .then(res => {
+        console.log('response: ', res)
+        const {language, words} = res
+        this.setState({language, words})
+      })
+  }
+
   render() {
     const value = {
       user: this.state.user,
       error: this.state.error,
+      language: this.state.language,
+      words: this.state.words,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
+      getLanguage: this.getLanguage,
     }
     return (
       <UserContext.Provider value={value}>
