@@ -109,7 +109,6 @@ export class UserProvider extends Component {
     console.log('getLanguage ran')
     ApiService.getLanguage()
       .then(res => {
-        console.log('response: ', res)
         const {language, words} = res
         this.setState({language, words})
       })

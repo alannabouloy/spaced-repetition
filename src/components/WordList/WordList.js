@@ -3,7 +3,7 @@ import WordTab from '../WordTab/WordTab'
 import './WordList.css'
 
 export default function WordList(props){
-    const wordList = props.words.map(word => <WordTab word={word.original} correct={word.correct_count} incorrect={word.incorrect_count}/>)
+    const wordList = props.words.map((word, i) => <WordTab key={i} word={word.original} correct={word.correct_count} incorrect={word.incorrect_count}/>)
     if(wordList.length > 0){
         return (
             <div className='practice-section'>
