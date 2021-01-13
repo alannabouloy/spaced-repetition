@@ -1,0 +1,22 @@
+.dashboard a {
+    text-decoration: none;
+    color: #FFFCE8;
+}
+
+.link-button {
+    background-color: #156064;
+    width: 50%;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 15px;
+    text-align: center;
+    border-right: #0E3638 solid 3px;
+    border-bottom: #0E3638 solid 3px;
+    
+}
+
+.link-button:hover {
+    background-color: #8EA604;
+    border-right: #465202 solid 3px;
+    border-bottom: #465202 solid 3px;
+}

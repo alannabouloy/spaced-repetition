@@ -7,7 +7,7 @@ export default function WordList(props){
     if(wordList.length > 0){
         return (
             <div className='practice-section'>
-                <div className='list-toggle'>
+                <div className='list'>
                     <h3>Words to Practice</h3>
                     <ul className={`word-list`}>
                         {wordList}

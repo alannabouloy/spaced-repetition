@@ -1,0 +1,17 @@
+.list {
+    width: 70%;
+    margin: auto;
+    
+}
+.list h3 {
+    text-align: center;
+}
+
+.word-list {
+    height: 50vh;
+    overflow: scroll;
+}
+
+.list li {
+    list-style: none;
+}
