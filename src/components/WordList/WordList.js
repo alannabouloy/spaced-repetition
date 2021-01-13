@@ -13,6 +13,9 @@ export default function WordList(props){
                         {wordList}
                     </ul>
                 </div>
+                <div className='total'>
+                    <p>Total correct answers: {props.total}</p>
+                </div>
             </div>
         )
     } else {

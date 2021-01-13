@@ -13,16 +13,20 @@ class DashboardRoute extends Component {
   }
 
   render() {
+    let total = 0
+    if(this.context.language.total_score){
+      total = this.context.language.total_score
+    }
     return (
       <section className='dashboard'>
         <LangBar language={this.context.language}/>
         <Link to='/learn'>
             <div className='link-button'>
-              <h3>Start Practicing</h3>
+              <h2>Start Practicing</h2>
             </div>
         </Link>
         
-         <WordList words={this.context.words}/>
+         <WordList total={total} words={this.context.words}/>
       </section>
     );
   }
