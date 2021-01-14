@@ -37,14 +37,14 @@ describe(`User story: Go to next word`, function() {
     cy.fixture('language-guess-generic.json')
       .then(languageHeadFixture => {
         cy.get('main').within($main => {
-          cy.get('p').eq(0)
+          cy.get('.total').eq(0)
             .should(
               'have.text',
-              `Your total score is: ${languageHeadFixture.totalScore}`,
+              `Total: ${languageHeadFixture.totalScore}`,
             )
           cy.get('h2')
             .should('have.text', 'Translate the word:')
-            .siblings('span')
+            .siblings('div')
             .should('have.text', languageHeadFixture.nextWord)
         })
       })
