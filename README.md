@@ -2,6 +2,8 @@
 
 Maestro is Spanish for 'teacher' which makes it the perfect name for an application designed to teach the user Spanish using a spaced repetition algorithm. 
 
+[Enjoy the live app here!](https://maestro-liard.vercel.app/)
+
 ## How it works
 Users visiting the app should be able to register for an account, log in, and then start learning with an initial set of twenty beginner Spanish words. 
 
