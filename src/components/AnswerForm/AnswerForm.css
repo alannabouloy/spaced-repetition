@@ -1,0 +1,21 @@
+.learning-page form {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.form-label {
+    font-size: 18px;
+}
+
+.form-field input {
+    width: 100%;
+    margin: 5px;
+}
+
+.form-submit {
+    text-align: center;
+}
+
+.learning-page .submit-button {
+   margin: 10px;
+}

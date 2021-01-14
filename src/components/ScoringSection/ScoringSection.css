@@ -1,0 +1,9 @@
+.scoring {
+    text-align: center;
+    font-size: 14px;
+}
+
+.correct {
+    color: #E06C9F;
+    font-size: 18px;
+}

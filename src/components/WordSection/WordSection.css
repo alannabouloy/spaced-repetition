@@ -1,0 +1,8 @@
+.translate {
+    display: flex;
+    flex-direction: column;
+}
+
+.translate h2 {
+    text-align: center;
+}

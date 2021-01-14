@@ -1,5 +1,5 @@
 import React from 'react'
-import './Total.css'
+
 
 export default function Total(props){
     return (
