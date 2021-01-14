@@ -128,13 +128,10 @@ export class UserProvider extends Component {
   }
 
   handleAnswer = guess => {
-    console.log('handleAnswer ran')
     const oldWord = this.state.word.nextWord
     ApiService.postAnswer(guess)
     .then(res => {
       const {nextWord, wordCorrectCount, wordIncorrectCount, totalScore, answer, isCorrect} = res
-      console.log('answer', answer)
-      console.log('correct', isCorrect)
       const word = {
         nextWord,
         wordCorrectCount,

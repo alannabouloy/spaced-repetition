@@ -14,7 +14,6 @@ export default class AnswerForm extends Component {
     handleSubmit = ev => {
         ev.preventDefault()
         const { guess } = ev.target
-        console.log('guess', guess.value)
         this.props.handleAnswer(guess.value.toLowerCase())
     }
 
