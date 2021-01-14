@@ -1,47 +1,22 @@
-# Spaced Repetition Capstone
+# Maestro Language Learning App
 
-## Setup
+Maestro is Spanish for 'teacher' which makes it the perfect name for an application designed to teach the user Spanish using a spaced repetition algorithm. 
 
-To setup the application
+## How it works
+Users visiting the app should be able to register for an account, log in, and then start learning with an initial set of twenty beginner Spanish words. 
 
-1. Fork and clone the project to your machine
-2. `npm install`. This will also install the application *Cypress.io* for running browser integration tests
+The app is designed with the concept of spaced repetitiong for language learning in mind. Users will be able to access a Language Dashboard where they will be able see the words they are learning as well as how many times they have gotten each word correct and incorrect. The app will also display the user's total overall score. 
 
-The project expects you have the Spaced repetition API project setup and running on http://localhost:8000.
+Once the user presses the button to start practicing, they will be shown their next Spanish word based off of where they left off last. They will have the ability to type in a translation for that word, and if they answer correctly the app will congratulate them and update their scores accordingly. They will not see that word as frequently going forward as long as they continue to answer it correctly. 
 
-Find instructions to setup the API here https://github.com/Thinkful-Ed/spaced-repetition-api.
+For words that the user is unable to answer, they will get a message telling them that they got it wrong and giving them the correct translation. Their scores will be updated accordingly and they will continue to see that word on a repeating basis until they are able to answer it correctly. 
 
-## Running project
+
+## Stack
+
+This app was designed using a Test Driven Development style and React as the framework for the front-end. Testing was done using a Cypress testing suite. Styling is basic CSS.
+
+The code for the api can be found [here](https://github.com/alannabouloy/spaced-repetition-api) and the api was built using Express and Node.
 
 This is a `create-react-app` project so `npm start` will start the project in development mode with hot reloading by default.
 
-## Running the tests
-
-This project uses [Cypress IO](https://docs.cypress.io) for integration testing using the Chrome browser.
-
-Cypress has the following expectations:
-
-- You have cypress installed (this is a devDependency of the project)
-- You have your application running at http://localhost:3000.
-  - You can change the address of this expectation in the `./cypress.json` file.
-- Your `./src/config.js` is using http://localhost:8000/api as the `API_ENDPOINT`
-
-To start the tests run the command:
-
-```bash
-npm run cypress:open
-```
-
-On the first run of this command, the cypress application will verify its install. Any other runs after this, the verification will be skipped.
-
-The command will open up the Cypress application which reads tests from the `./cypress/integration/` directory. You can then run individual tests by clicking on the file names or run all tests by clicking the "run all tests" button in the cypress GUI.
-
-Tests will assert against your running localhost client application.
-
-You can also start all of the tests in the command line only (not using the GUI) by running the command:
-
-```bash
-npm run cypress:run
-```
-
-This will save video recordings of the test runs in the directory `./cypress/videos/`.
