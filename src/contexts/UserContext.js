@@ -20,7 +20,7 @@ const UserContext = React.createContext({
   getLanguage: () => {},
   getNextWord: () => {},
   handleAnswer: () => {},
-  resetAnswer: () => {},
+  clearResponse: () => {},
 })
 
 export default UserContext
@@ -158,8 +158,8 @@ export class UserProvider extends Component {
     })
   }
 
-  resetAnswer = () => {
-    this.setState({answered: {}})
+  clearResponse = () => {
+    this.setState({response: '', feedbackMsg: ''})
   }
 
   render() {
@@ -179,7 +179,7 @@ export class UserProvider extends Component {
       getLanguage: this.getLanguage,
       getNextWord: this.getNextWord,
       handleAnswer: this.handleAnswer,
-      resetAnswer: this.resetAnswer,
+      clearResponse: this.clearResponse,
     }
     return (
       <UserContext.Provider value={value}>

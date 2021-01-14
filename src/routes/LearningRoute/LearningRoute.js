@@ -42,7 +42,7 @@ class LearningRoute extends Component {
             feedbackMsg={this.context.feedbackMsg}
           />
           <div className='button'>
-            <Button className='next-word-button'>
+            <Button onClick ={() => this.context.clearResponse()} className='next-word-button'>
               Try another word!
             </Button>
           </div>
