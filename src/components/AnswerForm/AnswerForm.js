@@ -10,9 +10,17 @@ export default class AnswerForm extends Component {
     componentDidMount(){
         this.firstInput.current.focus()
     }
+
+    handleSubmit = ev => {
+        ev.preventDefault()
+        const { guess } = ev.target
+        console.log('guess', guess.value)
+        this.props.handleAnswer(guess.value.toLowerCase())
+    }
+
     render(){
         return(
-            <form id='learn-guess'>
+            <form id='learn-guess' onSubmit={e => this.handleSubmit(e)}>
                 <div className='form-label'>
                     <Label htmlFor='learn-guess-input'>
                         What's the translation for this word?
@@ -23,7 +31,7 @@ export default class AnswerForm extends Component {
                     ref={this.firstInput}
                     type='text' 
                     id='learn-guess-input'
-                    name='translation'
+                    name='guess'
                     required
                     />
                 </div>

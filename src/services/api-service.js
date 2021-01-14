@@ -31,6 +31,7 @@ const ApiService = {
     },
 
     postAnswer(guess){
+        console.log('postAnswer ran')
         return fetch(`${config.API_ENDPOINT}/language/guess`, {
             method: 'POST',
             headers: {

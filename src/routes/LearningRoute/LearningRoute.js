@@ -7,14 +7,10 @@ import Total from '../../components/Total/Total'
 import Button from '../../components/Button/Button'
 import UserContext from '../../contexts/UserContext';
 import ResponseSection from '../../components/ResponseSection/ResponseSection';
+import './LearningRoute.css'
 
 
 class LearningRoute extends Component {
-  state = {
-    answered: false,
-    response: '',
-    feedbackMsg: ''
-  }
 
   async componentDidMount(){
     await this.context.getLanguage()
@@ -22,6 +18,7 @@ class LearningRoute extends Component {
   }
 
   static contextType = UserContext
+
 
   render() {
     let word = ''
@@ -35,18 +32,20 @@ class LearningRoute extends Component {
       total = this.context.word.totalScore
     }
 
-    if(this.state.answered){
+    if(this.context.response && this.context.feedbackMsg){
       return (
         <section className='learning-page'>
           <LangBar language={this.context.language}/>
           <ResponseSection 
             total={total} 
-            response={this.state.response} 
-            feedbackMsg={this.state.feedbackMsg}
+            response={this.context.response} 
+            feedbackMsg={this.context.feedbackMsg}
           />
-          <Button className='next-word-button'>
-            Try another word!
-          </Button>
+          <div className='button'>
+            <Button className='next-word-button'>
+              Try another word!
+            </Button>
+          </div>
         </section>
       )
 
@@ -55,7 +54,7 @@ class LearningRoute extends Component {
         <section className= 'learning-page'>
           <LangBar language={this.context.language}/>
           <WordSection word={word}/>
-          <AnswerForm />
+          <AnswerForm handleAnswer = {this.context.handleAnswer}/>
           <ScoringSection correct={correct} incorrect={incorrect}/>
           <Total total={total}/>
         </section>

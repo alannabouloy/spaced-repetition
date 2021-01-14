@@ -10,6 +10,8 @@ const UserContext = React.createContext({
   language: {},
   words: [],
   word: {},
+  feedbackMsg: '',
+  response: '',
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
@@ -17,6 +19,8 @@ const UserContext = React.createContext({
   processLogout: () => {},
   getLanguage: () => {},
   getNextWord: () => {},
+  handleAnswer: () => {},
+  resetAnswer: () => {},
 })
 
 export default UserContext
@@ -24,7 +28,7 @@ export default UserContext
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user: {}, error: null, language: {}, words: [], word: {} }
+    const state = { user: {}, error: null, language: {}, words: [], word: {}, feedbackMsg: '', response: '',}
 
     const jwtPayload = TokenService.parseAuthToken()
 
@@ -123,6 +127,41 @@ export class UserProvider extends Component {
       })
   }
 
+  handleAnswer = guess => {
+    console.log('handleAnswer ran')
+    const oldWord = this.state.word.nextWord
+    ApiService.postAnswer(guess)
+    .then(res => {
+      const {nextWord, wordCorrectCount, wordIncorrectCount, totalScore, answer, isCorrect} = res
+      console.log('answer', answer)
+      console.log('correct', isCorrect)
+      const word = {
+        nextWord,
+        wordCorrectCount,
+        wordIncorrectCount,
+        totalScore
+      }
+      
+      let response = ''
+      const feedbackMsg = `The correct translation for ${oldWord} was ${answer} and you chose ${guess}!`
+      
+      if(answer && isCorrect){
+        response = 'You were correct! :D'
+      }
+
+      if(answer && !isCorrect){
+        response = 'Good try, but not quite right :('
+      }
+
+      this.setState({word, response, feedbackMsg})
+      
+    })
+  }
+
+  resetAnswer = () => {
+    this.setState({answered: {}})
+  }
+
   render() {
     const value = {
       user: this.state.user,
@@ -130,6 +169,8 @@ export class UserProvider extends Component {
       language: this.state.language,
       words: this.state.words,
       word: this.state.word,
+      feedbackMsg: this.state.feedbackMsg,
+      response: this.state.response,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
@@ -137,6 +178,8 @@ export class UserProvider extends Component {
       processLogout: this.processLogout,
       getLanguage: this.getLanguage,
       getNextWord: this.getNextWord,
+      handleAnswer: this.handleAnswer,
+      resetAnswer: this.resetAnswer,
     }
     return (
       <UserContext.Provider value={value}>

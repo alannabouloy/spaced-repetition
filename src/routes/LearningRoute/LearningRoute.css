@@ -1,0 +1,21 @@
+.next-word-button {
+    background-color: #8EA604;
+    border: none;
+    border-right: #465202 solid 3px;
+    border-bottom: #465202 solid 3px;
+    color: #FFFCE8;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.next-word-button:hover {
+    background-color: #156064;
+    border-right: #0E3638 solid 3px;
+    border-bottom: #0E3638 solid 3px;
+}
+
+.button {
+    text-align: center;
+}
