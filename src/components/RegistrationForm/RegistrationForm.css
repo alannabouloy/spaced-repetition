@@ -33,3 +33,7 @@ footer {
 footer a, footer a:visited {
     color: #156064;
 }
+
+.alert {
+    color: #E06C9F;
+}
